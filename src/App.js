@@ -29,7 +29,7 @@ function App() {
     <>
       <div ref={minhaDiv} style={{backgroundColor: 'lightcoral'}}>
 
-      <h2>Hello</h2>
+      <h2>Contador</h2>
       <Contador contador={counter} />
       <button onClick={() => setCounter(old => old + 1)}>Somar</button>
       <button onClick={() => setCounter(old => old - 1)}>Subtrair</button>
