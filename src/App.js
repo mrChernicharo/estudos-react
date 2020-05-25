@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import './App.css';
-// import Input from './components/Input'
+import Input from './components/Input'
 
 function App() {
   const firstNameRef = useRef(null);
@@ -38,11 +38,11 @@ function App() {
 
   return (
     <div className="App">
-      <input ref={firstNameRef} onKeyDown={firstKeyDown} type="text" placeholder="Enter first name" />
+      <Input ref={firstNameRef} onKeyDown={firstKeyDown} type="text" placeholder="Enter first name" />
       <br />
-      <input ref={lastNameRef} onKeyDown={lastKeyDown} type="text" placeholder="Enter last name" />
+      <Input ref={lastNameRef} onKeyDown={lastKeyDown} type="text" placeholder="Enter last name" />
       <br />
-      <input ref={emailRef} onKeyDown={emailKeyDown} type="text" placeholder="Enter email" />
+      <Input ref={emailRef} onKeyDown={emailKeyDown} type="text" placeholder="Enter email" />
       <br />
       <button type="button" ref={submitRef} onClick={submitClick}  >Submit</button>
     </div>
