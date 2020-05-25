@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
 
 
 
 
 const Contador = (props) => {
+  const renders = useRef(0);
+
+  useEffect(() => {
+    renders.current = renders.current + 1;
+  });
+
     return(
-      <p>{props.contador}</p>
+      <>  
+        <p>Contador: {props.contador}</p>
+        <p>Renderizações: {renders.current}</p>
+      </>  
     );
 }
 
