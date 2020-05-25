@@ -1,45 +1,54 @@
-import React, { useState, useEffect, useRef } from 'react';
 
+import React, { useEffect, useRef } from 'react';
+import './App.css';
+// import Input from './components/Input'
 
+function App() {
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const submitRef = useRef(null);
+  
 
-
-
-const Contador = (props) => {
-  const renders = useRef(0);
 
   useEffect(() => {
-    renders.current = renders.current + 1;
-  });
-
-    return(
-      <>  
-        <p>Contador: {props.contador}</p>
-        <p>Renderizações: {renders.current}</p>
-      </>  
-    );
-}
+    firstNameRef.current.focus();
+  }, []);
 
 
-function App() {  
-  const minhaDiv = useRef(null)
-  const [counter, setCounter] = useState(0)
+  function firstKeyDown(e){
+    e.key === 'Enter' && lastNameRef.current.focus();
+  };
+  function lastKeyDown(e){
+    e.key === 'Enter' && emailRef.current.focus();
+  };
+  function emailKeyDown(e){
+    e.key === 'Enter' && submitRef.current.focus();
+  };
+
+  function submitClick(){
+     alert('Fooooi!');
+     console.log('click called');
+    
+  };
+
+     
+
 
 
   return (
-    <>
-      <div ref={minhaDiv} style={{backgroundColor: 'lightcoral'}}>
-
-      <h2>Contador</h2>
-      <Contador contador={counter} />
-      <button onClick={() => setCounter(old => old + 1)}>Somar</button>
-      <button onClick={() => setCounter(old => old - 1)}>Subtrair</button>
+    <div className="App">
+      <input ref={firstNameRef} onKeyDown={firstKeyDown} type="text" placeholder="Enter first name" />
       <br />
-      <button onClick={()=> console.log(minhaDiv)}>Console</button>
-
-      </div>
-    </>
-
+      <input ref={lastNameRef} onKeyDown={lastKeyDown} type="text" placeholder="Enter last name" />
+      <br />
+      <input ref={emailRef} onKeyDown={emailKeyDown} type="text" placeholder="Enter email" />
+      <br />
+      <button type="button" ref={submitRef} onClick={submitClick}  >Submit</button>
+    </div>
   );
 }
 
 export default App;
+
+// 

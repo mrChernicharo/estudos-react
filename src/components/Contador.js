@@ -21,9 +21,10 @@ function Contador() {
 
   return(
     <div>  
-      <h1>Contador</h1>
+      <h3>Contador</h3>
       <Painel valor={count}/>  
       <button onClick={() => setCount(old => old + 1)}>Somar</button>  
+      <button onClick={() => setCount(old => old - 1)}>Subtrair</button>  
     </div>  
   );
 }

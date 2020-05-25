@@ -1,12 +1,13 @@
 import React from 'react';
-import App from './App';
-import Contador from './Contador'
 import ReactDOM from 'react-dom';
+import Contador from './components/Contador'
+import App from './App';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
     <Contador />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
