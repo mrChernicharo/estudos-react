@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
+import { useRef } from 'react';
 
 
 
 
-function App() {
+const Contador = (props) => {
+    return(
+      <p>{props.contador}</p>
+    );
+}
 
-  
-  const [songs, setSongs] = useState([
-    {id: 1, name: 'feira de mangaio'},
-    {id: 2, name: 'onde está você'},
-  ]);
 
-  function handleAddSong() {
-    setSongs([...songs, {id: Math.random(), name: 'nova música'}])
-  }
+function App() {  
+  const minhaDiv = useRef(null)
+  const [counter, setCounter] = useState(0)
 
 
   return (
     <>
-      <h2>Hello</h2>
+      <div ref={minhaDiv} style={{backgroundColor: 'lightcoral'}}>
 
-      <ul>
-        { songs.map(song => <li key={song.id}>{song.name}</li>) }
-      </ul>
-      <button onClick={handleAddSong}>Adicionar Música</button>
+      <h2>Hello</h2>
+      <Contador contador={counter} />
+      <button onClick={() => setCounter(old => old + 1)}>Somar</button>
+      <button onClick={() => setCounter(old => old - 1)}>Subtrair</button>
       <br />
-      <button onClick={()=> console.log(songs)}>Console Lista</button>
+      <button onClick={()=> console.log(minhaDiv)}>Console</button>
+
+      </div>
     </>
 
   );
